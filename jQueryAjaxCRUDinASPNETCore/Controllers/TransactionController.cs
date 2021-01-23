@@ -15,7 +15,7 @@ namespace jQueryAjaxCRUDinASPNETCore.Controllers
 
         public TransactionController(TransactionDbContext context)
         {
-            _context = context;
+            this._context = context;
         }
 
         // GET: Transaction

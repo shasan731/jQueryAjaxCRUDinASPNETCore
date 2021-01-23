@@ -11,6 +11,9 @@
                 @Html.DisplayNameFor(model => model.BeneficiaryName)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.BankName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
@@ -22,29 +25,32 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AccountNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BeneficiaryName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Date)
-                </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BeneficiaryName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BankName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Amount)
-                </td>
-                <td>
-                    @*<a asp-action="Edit" asp-route-id="@item.TransactionId">Edit</a>*@ 
-                    <a onclick="showInPopup('@Url.Action("AddorEdit","Transaction",new { id=item.TransactionId},Context.Request.Scheme)', 'Update Transaction')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a>
-                    @*<a asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>*@
-                    <form asp-action="Delete" asp-route-id="@item.TransactionId" onsubmit="return jQueryAjaxDelete(this);" class="d-inline">
-                        <input type="submit" value="Delete" class="btn btn-danger"/>
-                    </form>
-                </td>
-            </tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.TransactionId">Edit</a>*@
+                <a onclick="showInPopup('@Url.Action("AddorEdit","Transaction",new { id=item.TransactionId},Context.Request.Scheme)', 'Update Transaction')" class="btn btn-info text-white"><i class="fas fa-pencil-alt"></i> Edit</a>
+                @*<a asp-action="Delete" asp-route-id="@item.TransactionId">Delete</a>*@
+                <form asp-action="Delete" asp-route-id="@item.TransactionId" onsubmit="return jQueryAjaxDelete(this);" class="d-inline">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+                </form>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
